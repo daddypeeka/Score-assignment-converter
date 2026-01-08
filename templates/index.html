@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>科目赋分系统</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>科目赋分计算系统</h1>
+        
+        <!-- 提示信息 -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="alert {{ category }}">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        <!-- 结果路径展示 -->
+        {% if result_path %}
+            <div class="result-box">
+                <h3>生成结果</h3>
+                <p>文件已保存至：<span class="path-text">{{ result_path }}</span></p>
+                <p>完整路径：<span class="path-text">{{ config.BASE_DIR }}/{{ result_path }}</span></p>
+            </div>
+        {% endif %}
+        
+        <!-- 上传表单 -->
+        <form method="POST" enctype="multipart/form-data" class="upload-form">
+            <div class="form-group">
+                <label for="original_file">1. 上传原始分数表（xlsx/csv）：</label>
+                <input type="file" id="original_file" name="original_file" required accept=".xlsx,.csv">
+            </div>
+            
+            <div class="form-group">
+                <label for="score_file">2. 上传赋分规则表（xlsx/csv）：</label>
+                <input type="file" id="score_file" name="score_file" required accept=".xlsx,.csv">
+            </div>
+            
+            <div class="form-group">
+                <label>3. 选择赋分列添加位置：</label>
+                <div class="radio-group">
+                    <label>
+                        <input type="radio" name="insert_position" value="after_subject" checked>
+                        插入到对应科目列后方
+                    </label>
+                    <label>
+                        <input type="radio" name="insert_position" value="end">
+                        追加到表格末尾
+                    </label>
+                </div>
+            </div>
+            
+            <button type="submit" class="submit-btn">开始赋分并生成文件</button>
+        </form>
+        
+        <!-- 格式说明 -->
+        <div class="format-tips">
+            <h3>表格格式说明</h3>
+            <div class="tip-item">
+                <h4>原始分数表格式：</h4>
+                <p>第一行是列名（姓名、物理、化学、生物、政治、历史、地理、技术等），空值留空即可。</p>
+            </div>
+            <div class="tip-item">
+                <h4>赋分规则表格式：</h4>
+                <p>第一列固定为「赋分值」，其他列是科目名称（需与原始表一致），每行数值为对应赋分值的最低原始分要求。</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
