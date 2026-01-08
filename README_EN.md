@@ -31,7 +31,7 @@ pip install flask pandas openpyxl faker
 ### 1. Start the System
 ```bash
 # Enter the project root directory (Score Assignment Program folder)
-cd 赋分程序
+cd Score-assignment-converter
 
 # Run the Flask application
 python app.py
@@ -59,7 +59,7 @@ The system automatically calculates the assigned scores and generates a download
 The project provides a test data generation tool to quickly generate simulated raw score tables for testing system functions:
 ```bash
 # Enter the testfile directory
-cd 赋分程序/testfile
+cd Score-assignment-converter/testfile
 
 # Run the test data generation script
 python generate_test_data.py
@@ -67,7 +67,7 @@ python generate_test_data.py
 #### Generation Rule Description
 - Randomly generate information for 50 students (Chinese names)
 - Each student randomly selects 3 subjects to generate scores (covering 0-100 points, divided into three levels: low/medium/high)
-- The generated file name is: `原始分数表_RandomString.xlsx` (ensuring uniqueness)
+- The generated file name is: `Original_RandomString.xlsx` (ensuring uniqueness)
 - After generation, the file can be uploaded as the "Raw Score Table" and used with a custom "Score Assignment Rule Table" to test the score assignment function
 
 ## 4. Table Format Specifications
@@ -98,7 +98,7 @@ python generate_test_data.py
 
 ## 6. Directory Structure
 ```
-赋分程序/
+Score-assignment-converter/
 ├── app.py              # Flask application entry
 ├── config.py           # System configuration (secret key, file limits, paths, etc.)
 ├── score_processor.py  # Core score assignment calculation logic

@@ -32,7 +32,7 @@ pip install flask pandas openpyxl faker
 ### 1. 启动系统
 ```bash
 # 进入项目根目录（赋分程序文件夹）
-cd 赋分程序
+cd Score-assignment-converter
 
 # 运行Flask应用
 python app.py
@@ -60,7 +60,7 @@ python app.py
 项目提供测试数据生成工具，可快速生成模拟的原始分数表，用于测试系统功能：
 ```bash
 # 进入testfile目录
-cd 赋分程序/testfile
+cd Score-assignment-converter/testfile
 
 # 运行测试数据生成脚本
 python generate_test_data.py
@@ -68,7 +68,7 @@ python generate_test_data.py
 #### 生成规则说明
 - 随机生成50名学生的信息（中文姓名）
 - 每位学生随机选择3门科目生成成绩（覆盖0-100分区间，分差/中/好三个等级）
-- 生成的文件名为：`原始分数表_随机字符串.xlsx`（确保唯一性）
+- 生成的文件名为：`Original_随机字符串.xlsx`（确保唯一性）
 - 生成后可将该文件作为「原始分数表」上传，配合自定义的「赋分规则表」测试赋分功能
 
 ## 四、表格格式规范
@@ -99,7 +99,7 @@ python generate_test_data.py
 
 ## 六、目录结构
 ```
-赋分程序/
+Score-assignment-converter/
 ├── app.py              # Flask应用入口
 ├── config.py           # 系统配置（密钥、文件限制、路径等）
 ├── score_processor.py  # 核心赋分计算逻辑

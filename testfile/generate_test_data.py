@@ -59,7 +59,7 @@ def generate_test_original_table():
     
     # 生成随机文件名（每次不同）
     random_str = generate_random_string()
-    filename = f'原始分数表_{random_str}.xlsx'
+    filename = f'Original_{random_str}.xlsx'
     
     # 保存为Excel文件
     df.to_excel(filename, index=False, engine='openpyxl')
