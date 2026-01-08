@@ -12,4 +12,4 @@ TEMPLATE_DIR = os.path.join(BASE_DIR, 'templates')
 STATIC_DIR = os.path.join(BASE_DIR, 'static')
 
 # 文件名前缀（仅用于下载）
-DEFAULT_FILENAME_PREFIX = '赋分结果表'
+DEFAULT_FILENAME_PREFIX = 'Result'

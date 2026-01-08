@@ -51,7 +51,7 @@ After startup, access `http://localhost:5000` in your browser to enter the syste
 3. Click the "Start Score Assignment and Generate File" button
 
 #### Step 3: Download Result File
-The system automatically calculates the assigned scores and generates a downloadable file. The file name format is: `赋分结果表_YYYYMMDD_HHMMSS.xlsx`. After downloading, you can view:
+The system automatically calculates the assigned scores and generates a downloadable file. The file name format is: `Result_YYYYMMDD_HHMMSS.xlsx`. After downloading, you can view:
 - The assigned score corresponding to the raw score of each subject
 - Statistics of the total score of all valid assigned scores
 
