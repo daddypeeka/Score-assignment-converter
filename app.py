@@ -1,5 +1,11 @@
 from flask import Flask, render_template, request, flash, redirect, url_for, send_file
+<<<<<<< HEAD
 import io
+=======
+import os
+import io
+from werkzeug.utils import secure_filename
+>>>>>>> e5c004d79f6aee8c916f1daf73fc1f4106d64648
 import config
 from score_processor import load_tables, process_assignment, save_to_bytes
 from utils import generate_unique_filename
@@ -18,7 +24,13 @@ def allowed_file(filename):
 @app.route('/', methods=['GET', 'POST'])
 def index():
     """首页：上传文件 + 选择配置 + 生成下载文件"""
+<<<<<<< HEAD
 
+=======
+    # 保存下载文件名（用于前端展示下载链接）
+    download_filename = None
+    
+>>>>>>> e5c004d79f6aee8c916f1daf73fc1f4106d64648
     if request.method == 'POST':
         # 1. 检查文件是否上传
         if 'original_file' not in request.files or 'score_file' not in request.files:
@@ -47,6 +59,10 @@ def index():
             df_result = process_assignment(df_original, df_score, insert_position)
             
             _, filename = generate_unique_filename()
+<<<<<<< HEAD
+=======
+            download_filename = filename  
+>>>>>>> e5c004d79f6aee8c916f1daf73fc1f4106d64648
             
             file_bytes = save_to_bytes(df_result)
             
@@ -60,7 +76,15 @@ def index():
         except Exception as e:
             flash(f'处理失败：{str(e)}', 'error')
             return redirect(request.url)
+<<<<<<< HEAD
     return render_template("index.html")
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
+=======
+    
+    return render_template('index.html', download_filename=download_filename)
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=5000)
+>>>>>>> e5c004d79f6aee8c916f1daf73fc1f4106d64648
