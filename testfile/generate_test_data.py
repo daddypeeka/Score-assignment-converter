@@ -1,9 +1,5 @@
 import pandas as pd
 import random
-<<<<<<< HEAD
-=======
-import string
->>>>>>> e5c004d79f6aee8c916f1daf73fc1f4106d64648
 from faker import Faker
 import time  # 新增：用于时间戳，强化文件名唯一性
 
